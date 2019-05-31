@@ -1,12 +1,54 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import { render } from 'react-dom'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const optionA = {
+  title: {
+    text: 'Line'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const optionB = {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Bar'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
+
+const optionC = {
+  chart: {
+    type: 'pie'
+  },
+  title: {
+    text: 'Pie'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
+
+const App = () => <div>
+  <HighchartsReact
+    highcharts={Highcharts}
+    options={optionA}
+  />
+  <HighchartsReact
+    highcharts={Highcharts}
+    options={optionB}
+  />
+  <HighchartsReact
+    highcharts={Highcharts}
+    options={optionC}
+  />
+</div>
+
+render(<App />, document.getElementById('root'))
